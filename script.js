@@ -1,5 +1,6 @@
 const color = document.getElementsByClassName('color');
-let pixelBoard = document.getElementById('pixel-board');
+const pixelBoard = document.getElementById('pixel-board');
+color[0].classList.add('selected');
 
 for (index = 0; index < color.length; index += 1) {
   if (color[index] === color[0]) {
@@ -13,10 +14,10 @@ for (index = 0; index < color.length; index += 1) {
   }
 }
 
-for (index0 = 0; index0 < 5; index0 += 1) {
-  for (index1 = 0; index1 < 5; index1 += 1) {
-    let boardElement = document.createElement('div');
-    pixelBoard.appendChild(boardElement);
-    boardElement.classList.add('pixel');
-  }
+for (index0 = 0; index0 < 25; index0 += 1) {
+  const boardElement = document.createElement('div');
+  pixelBoard.appendChild(boardElement);
+  boardElement.classList.add('pixel');
 }
+
+
