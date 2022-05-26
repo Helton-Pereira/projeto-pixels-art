@@ -9,7 +9,8 @@
 
 
 #pixel-board {
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
+    width: 210px;
 }   
 
 .pixel {
