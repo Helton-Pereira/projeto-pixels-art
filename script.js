@@ -20,4 +20,12 @@ for (index0 = 0; index0 < 25; index0 += 1) {
   boardElement.classList.add('pixel');
 }
 
-
+function select(event) {
+  const selection = document.querySelector('.selected');
+  selection.classList.remove('selected');
+  event.target.classList.add('selected');
+}
+color[0].addEventListener('click', select);
+color[1].addEventListener('click', select);
+color[2].addEventListener('click', select);
+color[3].addEventListener('click', select);
