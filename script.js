@@ -15,17 +15,35 @@ for (index = 0; index < color.length; index += 1) {
 }
 
 for (index0 = 0; index0 < 25; index0 += 1) {
-  const boardElement = document.createElement('div');
+  const boardElement = document.createElement('span');
   pixelBoard.appendChild(boardElement);
   boardElement.classList.add('pixel');
 }
 
-function select(event) {
+const pixel = document.getElementsByClassName('pixel');
+
+function select(event1) {
   const selection = document.querySelector('.selected');
   selection.classList.remove('selected');
-  event.target.classList.add('selected');
+  event1.target.classList.add('selected');
 }
+
 color[0].addEventListener('click', select);
 color[1].addEventListener('click', select);
 color[2].addEventListener('click', select);
 color[3].addEventListener('click', select);
+
+function selectColor(event2) {
+  if (event2.target.className === 'pixel') {
+    const colorPaint = document.querySelector('.selected').style.backgroundColor;
+    const mudaCor = event2.target;
+    mudaCor.style.backgroundColor = colorPaint;
+  }
+}
+
+function paint() {
+  const pintar = document.getElementById('pixel-board');
+  pintar.addEventListener('click', selectColor)
+}
+
+paint();
