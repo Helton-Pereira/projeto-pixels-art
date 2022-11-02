@@ -52,3 +52,43 @@ function clear() {
 const button = document.getElementById('clear-board');
 
 button.addEventListener('click', clear);
+
+function removePixel() {
+  const pixel = document.getElementsByClassName('pixel');
+  const total = pixel.length;
+  for (let index2 = 0; index2 < total; index2 += 1) {
+    let element = pixel[0];
+    pixelBoard.removeChild(element);
+  }
+}
+
+function increaseBoard() {
+  const size = document.getElementById('board-size').value;
+  const pixelBoardSize = document.getElementById('pixel-board');
+  console.log(pixelBoardSize);
+  const boardWidth = (size * 42);
+  pixelBoardSize.style.width = `${boardWidth}px`;
+}
+
+function alert() {
+  const alerta = window.alert('Board Inválido');
+  return (alerta);
+}
+
+function generateNewBoard() {
+  const size = document.getElementById('board-size').value;
+  if (size === ' ') {
+    alert();
+  } else {
+    removePixel();
+    increaseBoard();
+    for (let i = 0; i < size * size; i += 1) {
+      const boardElement = document.createElement('span');
+      pixelBoard.appendChild(boardElement);
+      boardElement.classList.add('pixel');
+    }
+  }
+}
+const vQV = document.getElementById('generate-board');
+
+vQV.addEventListener('click', generateNewBoard);
